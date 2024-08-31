@@ -115,7 +115,7 @@ onMounted(() => {
 const sections = ref([
   { id: 'home', name: 'Home', icon: ['fas', 'house'] },
   { id: 'about', name: 'About', icon: ['fas', 'user'] },
-  { id: 'resume', name: 'Resume', icon: ['fas', 'file-alt'] },
+  { id: 'resume', name: 'Résumé', icon: ['fas', 'file-alt'] },
   { id: 'content', name: 'Content', icon: ['fas', 'stream'] }, // Updated icon for Content
   { id: 'contact', name: 'Contact Me', icon: ['fas', 'envelope'] },
 ]);

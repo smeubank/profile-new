@@ -79,7 +79,7 @@
 
       <!-- The Stuff I am not supposed to put in Resumes anymore -->
       <div class="mt-16">
-        <h3 class="text-3xl font-bold text-gray-800">The Stuff I am not supposed to put in Resumes anymore</h3>
+        <h3 class="text-3xl font-bold text-gray-800">The work I'm not supposed to put in résumés anymore</h3>
         <div class="mt-2 h-1 bg-orange-500 w-3/4"></div>
         <div class="flex items-center justify-start mt-2 cursor-pointer" @click="toggleExpand">
           <font-awesome-icon :icon="isExpanded ? 'chevron-down' : 'chevron-right'" class="text-gray-800 transition-transform duration-500" :class="{'rotate-90': isExpanded}" />

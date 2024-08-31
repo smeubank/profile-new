@@ -33,7 +33,7 @@
 
         <!-- Events Column -->
         <div>
-          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Events</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Events and Streams</h3>
           <div
             v-for="event in events"
             :key="event.title"
