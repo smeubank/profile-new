@@ -28,7 +28,7 @@
         <a href="https://www.facebook.com/steven.m.eubank" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-blue-500 transition">
           <font-awesome-icon :icon="['fab', 'facebook']" class="text-white" />
         </a>
-        <a href="https://twitter.com/steveneubank" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-blue-500 transition">
+        <a href="https://twitter.com/steven_boKnows" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-blue-500 transition">
           <font-awesome-icon :icon="['fab', 'twitter']" class="text-white" />
         </a>
       </div>
