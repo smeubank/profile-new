@@ -1,75 +1,36 @@
-# Nuxt 3 Minimal Starter
+# Personal Portfolio Website
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is the repository for Steven Eubank's personal portfolio and resume website. The website showcases Steven's professional experience, educational background, certifications, projects, and blog posts. The site is built using Nuxt.js 3 and Tailwind CSS, with content dynamically rendered through Vue components.
 
-## Setup
+### Website Overview
 
-Make sure to install the dependencies:
+The website consists of the following sections:
 
-```bash
-# npm
-npm install
+- **Home**: A hero section featuring Steven's name with a background image that dynamically fills the screen.
+- **About**: This section provides a brief overview of Steven's background, including personal information like Date of Birth (DoB), current city, nationality, and educational qualifications.
+- **Resume**: The resume section displays Steven's professional experience and education in a timeline format, with interactive sections and expandable details.
+- **Certifications and Permits**: A detailed list of certifications and permits, organized with custom icons and presented in a structured format.
+- **Content**: A collection of Steven's blog posts and event participations, displayed in an interactive grid of cards. Each card links to external content with preview images fetched dynamically.
+- **Contact**: This section provides contact information including location, email link, and a Google Maps embed showing Steven's current city.
+  
+### Features
 
-# pnpm
-pnpm install
+- **Responsive Design**: The website is fully responsive, with a sidebar that transitions to a hamburger menu on smaller screens.
+- **Dynamic Content**: The content section dynamically fetches metadata, including images for blog posts and events, making the site visually rich.
+- **Smooth Navigation**: The sidebar navigation highlights the current section as you scroll, improving user experience.
 
-# yarn
-yarn install
+### Live Deployment
 
-# bun
-bun install
-```
+You can view the live version of the website at the following link:
 
-## Development Server
+[Steven Eubank's Portfolio](https://profile-new-ten.vercel.app/)
 
-Start the development server on `http://localhost:3000`:
+### Running Locally
 
-```bash
-# npm
-npm run dev
+To run this website locally on your machine, follow these steps:
 
-# pnpm
-pnpm run dev
+1. **Clone the repository**:
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+   ```bash
+   git clone https://github.com/your-username/profile-new.git
+   cd profile-new
