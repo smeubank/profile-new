@@ -6,7 +6,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "NODE_OPTIONS='--import ./public/instrument.server.mjs' nuxt preview",
+    "start": "node --import .output/public/instrument.server.mjs .output/server/index.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@sentry/nuxt": "^8.27.0",
     "axios": "^1.7.6",
     "nuxt": "^3.13.0",
     "unfurl.js": "^6.4.0",
