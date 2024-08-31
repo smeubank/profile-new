@@ -7,8 +7,8 @@
     <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
 
     <!-- Text Overlay -->
-    <div class="relative z-20 flex items-center justify-center h-full">
-      <h1 class="text-white text-6xl font-bold">Steven Eubank</h1>
+    <div class="relative z-20 flex items-start justify-center h-full pt-20"> <!-- Moved text up by 25% -->
+      <h2 class="text-white text-4xl font-bold">I'm this guy < 1% of the time</h2>
     </div>
   </section>
 </template>
@@ -17,5 +17,9 @@
 </script>
 
 <style scoped>
-/* Adjust styles as needed for responsive design */
+/* Ensure the hero image fills the available space */
+section {
+  margin: 0;
+  padding: 0;
+}
 </style>

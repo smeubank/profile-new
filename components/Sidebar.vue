@@ -55,10 +55,25 @@
             </a>
           </li>
           <li>
-            <a @click="closeSidebar" href="#content" class="flex items-center space-x-2 hover:text-blue-300">
-              <font-awesome-icon :icon="['fas', 'file-alt']" />
+            <a @click="closeSidebar" href="#content" class="flex items-center space-x-2 hover:text-blue-300"
+              :class="{'text-blue-300': activeSection === 'content'}">
+              <font-awesome-icon :icon="['fas', 'stream']" />
               <span>Content</span>
             </a>
+            <ul v-if="activeSection === 'content'" class="ml-6 mt-2 space-y-2">
+              <li>
+                <a @click="closeSidebar" href="#blogs" class="flex items-center space-x-2 hover:text-blue-300">
+                  <font-awesome-icon :icon="['fas', 'newspaper']" />
+                  <span>Blogs</span>
+                </a>
+              </li>
+              <li>
+                <a @click="closeSidebar" href="#events" class="flex items-center space-x-2 hover:text-blue-300">
+                  <font-awesome-icon :icon="['fas', 'bullhorn']" />
+                  <span>Events</span>
+                </a>
+              </li>
+            </ul>
           </li>
           <li>
             <a @click="closeSidebar" href="#contact" class="flex items-center space-x-2 hover:text-blue-300">
@@ -73,28 +88,63 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue';
 
-const isOpen = ref(false)
+const isOpen = ref(false);
 
 const toggleSidebar = () => {
-  isOpen.value = !isOpen.value
-}
+  isOpen.value = !isOpen.value;
+};
 
 const closeSidebar = () => {
-  isOpen.value = false
-}
+  isOpen.value = false;
+};
 
 const sidebarClass = computed(() => {
-  return isOpen.value ? 'translate-x-0' : '-translate-x-full'
-})
+  return isOpen.value ? 'translate-x-0' : '-translate-x-full';
+});
 
 // Ensure the sidebar is closed by default on mobile
 onMounted(() => {
   if (window.innerWidth < 1024) {
-    isOpen.value = false
+    isOpen.value = false;
   }
-})
+});
+
+// Sections for the sidebar
+const sections = ref([
+  { id: 'home', name: 'Home', icon: ['fas', 'house'] },
+  { id: 'about', name: 'About', icon: ['fas', 'user'] },
+  { id: 'resume', name: 'Resume', icon: ['fas', 'file-alt'] },
+  { id: 'content', name: 'Content', icon: ['fas', 'stream'] }, // Updated icon for Content
+  { id: 'contact', name: 'Contact Me', icon: ['fas', 'envelope'] },
+]);
+
+// Track the active section
+const activeSection = ref('');
+
+const setActiveSection = (entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      activeSection.value = entry.target.id;
+    }
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(setActiveSection, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3,
+  });
+
+  sections.value.forEach(section => {
+    const element = document.getElementById(section.id);
+    if (element) {
+      observer.observe(element);
+    }
+  });
+});
 </script>
 
 <style scoped>
@@ -105,5 +155,10 @@ button {
 
 div.fixed {
   z-index: 40;
+}
+
+.text-blue-300 {
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 </style>
