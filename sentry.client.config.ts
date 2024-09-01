@@ -9,6 +9,12 @@ Sentry.init({
       Sentry.feedbackIntegration({
         // Additional SDK configuration goes in here, for example:
         colorScheme: "system",
+        triggerLabel: "Contact me",
+        triggerAriaLabel: "Contact me",
+        formTitle: "Contact me",
+        submitButtonLabel: "Contact me",
+        messagePlaceholder: "This is honestly just me dogfooding some Sentry features. I may not see this.",
+        successMessageText: "Thank you for your message.",
       }),
     ],
     // Tracing
