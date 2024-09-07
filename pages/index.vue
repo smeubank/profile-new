@@ -9,6 +9,7 @@
       <AboutSection />
       <ResumeSection />
       <ContentSection />
+      <FaqSection/>
       <ContactSection />
     </div>
   </div>
