@@ -10,7 +10,7 @@
         <!-- Two columns of cards: Blogs and Events -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- Blogs Column -->
-          <div>
+          <div id="blogs">
             <h3 class="text-2xl font-semibold text-gray-800 mb-4">Blogs</h3>
             <div
               v-for="blog in blogs"
@@ -35,7 +35,7 @@
           </div>
 
           <!-- Events Column -->
-          <div>
+          <div id="events">
             <h3 class="text-2xl font-semibold text-gray-800 mb-4">Events and Streams</h3>
             <div
               v-for="event in events"
