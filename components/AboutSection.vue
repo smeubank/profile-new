@@ -31,61 +31,44 @@
         <div class="mt-2 h-1 bg-orange-500 w-3/4"></div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-          <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
-            <font-awesome-icon :icon="['fas', 'cloud']" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
-            <div>
-              <span class="text-sm font-bold block">AWS Solution Architect Associate</span>
-              <span class="text-xs block">2020</span>
-            </div>
-          </div>
-          <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
-            <font-awesome-icon :icon="['fas', 'user-tie']" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
-            <div>
-              <span class="text-sm font-bold block">Allianz Business Analyst Certification</span>
-              <span class="text-xs block">2018</span>
-            </div>
-          </div>
-          <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
-            <font-awesome-icon :icon="['fas', 'database']" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
-            <div>
-              <span class="text-sm font-bold block">Allianz Business System Certification Levels 1 & 2</span>
-              <span class="text-xs block">2016 & 2017</span>
-            </div>
-          </div>
-          <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
-            <font-awesome-icon :icon="['fas', 'comments']" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
-            <div>
-              <span class="text-sm font-bold block">Native English & B1 German (ÖIF)</span>
-              <span class="text-xs block">2020</span>
-            </div>
-          </div>
-          <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
-            <font-awesome-icon :icon="['fas', 'flag']" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
-            <div>
-              <span class="text-sm font-bold block">US Citizen</span>
-              <span class="text-xs block">Birth</span>
-            </div>
-          </div>
-          <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
-            <font-awesome-icon :icon="['fas', 'id-card']" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
-            <div>
-              <span class="text-sm font-bold block">Permanent Austrian Residence Permit "Daueraufenthalt – EU"</span>
-              <span class="text-xs block">2019-</span>
-            </div>
-          </div>
-          <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
-            <font-awesome-icon :icon="['fas', 'car']" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
-            <div>
-              <span class="text-sm font-bold block">EU A/AM/B Class Driving License</span>
-            </div>
-          </div>
-          <!-- New Item: Other Misc Certs -->
-          <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
-            <font-awesome-icon :icon="['fas', 'file-alt']" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
-            <div>
-              <span class="text-sm font-bold block">Other Misc Certs Corpos Made Me Do</span>
-            </div>
-          </div>
+          <CertificationCard
+            icon="cloud"
+            title="AWS Solution Architect Associate"
+            date="2020"
+          />
+          <CertificationCard
+            icon="user-tie"
+            title="Allianz Business Analyst Certification"
+            date="2018"
+          />
+          <CertificationCard
+            icon="database"
+            title="Allianz Business System Certification Levels 1 & 2"
+            date="2016 & 2017"
+          />
+          <CertificationCard
+            icon="comments"
+            title="Native English & B1 German (ÖIF)"
+            date="2020"
+          />
+          <CertificationCard
+            icon="flag"
+            title="US Citizen"
+            date="Birth"
+          />
+          <CertificationCard
+            icon="id-card"
+            title='Permanent Austrian Residence Permit "Daueraufenthalt – EU"'
+            date="2019-"
+          />
+          <CertificationCard
+            icon="car"
+            title="EU A/AM/B Class Driving License"
+          />
+          <CertificationCard
+            icon="file-alt"
+            title="Other Misc Certs Corpos Made Me Do"
+          />
         </div>
       </div>
     </div>
@@ -93,6 +76,37 @@
 </template>
 
 <script setup>
+import { defineComponent } from 'vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+const CertificationCard = defineComponent({
+  props: {
+    icon: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: String,
+      default: '',
+    },
+  },
+  template: `
+    <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
+      <font-awesome-icon :icon="['fas', icon]" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
+      <div>
+        <span class="text-sm font-bold block">{{ title }}</span>
+        <span v-if="date" class="text-xs block">{{ date }}</span>
+      </div>
+    </div>
+  `,
+  components: {
+    FontAwesomeIcon,
+  },
+});
 </script>
 
 <style scoped>
