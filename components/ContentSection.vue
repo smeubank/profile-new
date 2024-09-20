@@ -19,7 +19,7 @@
               class="p-4 bg-white rounded-lg shadow-md hover:border-gradient mb-6 cursor-pointer transform hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <img
-                :src="blog.image || 'https://via.placeholder.com/300x200'"
+                :src="blog.image || placeholderImage"
                 alt="Blog Image"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -44,7 +44,7 @@
               class="p-4 bg-white rounded-lg shadow-md hover:border-gradient mb-6 cursor-pointer transform hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <img
-                :src="event.image || 'https://via.placeholder.com/300x200'"
+                :src="event.image || placeholderImage"
                 alt="Event Image"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -67,6 +67,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import ExpandableSection from '@/components/ExpandableSection.vue'; // Import ExpandableSection
+
+const placeholderImage = 'https://via.placeholder.com/300x200';
 
 const blogs = ref([
   {
@@ -182,10 +184,10 @@ const fetchPreviewImage = async (item) => {
     const ogImage = doc.querySelector('meta[property="og:image"]');
     const twitterImage = doc.querySelector('meta[name="twitter:image"]');
 
-    item.image = ogImage?.content || twitterImage?.content || 'https://via.placeholder.com/300x200';
+    item.image = ogImage?.content || twitterImage?.content || placeholderImage;
   } catch (error) {
     console.error(`Failed to fetch preview for ${item.link}:`, error);
-    item.image = 'https://via.placeholder.com/300x200'; // Fallback image
+    item.image = placeholderImage; // Fallback image
   }
 };
 

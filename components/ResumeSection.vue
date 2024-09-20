@@ -1,51 +1,51 @@
 <template>
-  <section id="resume" class="py-16 bg-gray-100 shadow-rounded">
+  <section id="resume" class="py-16 bg-gray-100">
     <div class="container mx-auto px-4">
-      <!-- Resume Header -->
-      <div class="text-left mb-8">
-        <h2 class="text-3xl font-bold text-gray-800">Résumé</h2>
-        <div class="mt-2 h-1 bg-orange-500 w-3/4"></div>
-      </div>
-
-      <!-- Two Column Layout for Professional Experience, Education, and Academic Work Experience -->
-      <ExpandableSection title="View More" :expanded="true">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Professional Experience Column -->
-          <div>
-            <h3 class="text-3xl font-bold text-gray-800 mb-4">Professional Experience</h3>
-            <div class="flex flex-col gap-8">
-              <div v-for="(item, index) in professionalExperience" :key="index" class="bg-white p-4 rounded-lg shadow-md">
-                <h4 class="text-lg font-bold">{{ item.title }}</h4>
-                <p class="text-sm italic">{{ item.company }}</p>
-                <div class="bg-blue-100 p-2 mt-2 text-sm text-center">{{ item.date }}</div>
-                <p class="mt-2 text-sm">{{ item.description }}</p>
-              </div>
-            </div>
+      <h2 class="text-3xl font-bold text-center mb-8">Resume</h2>
+      <ExpandableSection>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Professional Experience Card -->
+          <div class="bg-white rounded-lg shadow-md p-6 hover:border-gradient transition-all duration-300">
+            <h3 class="text-xl font-semibold mb-4">Professional Experience</h3>
+            <ul>
+              <li v-for="exp in professionalExperience" :key="exp.title" class="mb-4 relative">
+                <img v-if="exp.company.includes('Allianz')" src="assets/img/allianz_logo.svg" alt="Company Logo" class="absolute top-0 right-0 m-2 w-14 h-14">
+                <img v-else-if="exp.company.includes('Sentry.io')" src="assets/img/sentry_logo.svg" alt="Company Logo" class="absolute top-0 right-0 m-2 w-14 h-14 object-cover rounded-full">
+                <h4 class="font-bold">{{ exp.title }}</h4>
+                <p>{{ exp.company }}</p>
+                <p>{{ exp.date }}</p>
+                <p>{{ exp.description }}</p>
+              </li>
+            </ul>
           </div>
 
-          <!-- Education and Academic Work Experience Column -->
-          <div>
-            <!-- Education Section -->
-            <h3 class="text-3xl font-bold text-gray-800 mb-4">Education</h3>
-            <div class="flex flex-col gap-8">
-              <div v-for="(item, index) in education" :key="index" class="bg-white p-4 rounded-lg shadow-md">
-                <h4 class="text-lg font-bold">{{ item.degree }}</h4>
-                <p class="text-sm italic">{{ item.university }}</p>
-                <div class="bg-blue-100 p-2 mt-2 text-sm text-center">{{ item.date }}</div>
-                <p class="mt-2 text-sm">{{ item.details }}</p>
-              </div>
-            </div>
+          <!-- Education Card -->
+          <div class="bg-white rounded-lg shadow-md p-6 hover:border-gradient transition-all duration-300">
+            <h3 class="text-xl font-semibold mb-4">Education</h3>
+            <ul>
+              <li v-for="edu in education" :key="edu.degree" class="mb-4 relative">
+                <img v-if="edu.university === 'Auburn University'" src="assets/img/auburn_logo.svg" alt="University Logo" class="absolute top-0 right-0 m-2 w-14 h-14">
+                <img v-else-if="edu.university === 'University of Alabama at Birmingham'" src="assets/img/blazer.png" alt="University Logo" class="absolute top-0 right-0 m-2 w-14 h-14">
+                <h4 class="font-bold">{{ edu.degree }}</h4>
+                <p>{{ edu.university }}</p>
+                <p>{{ edu.date }}</p>
+                <p>{{ edu.details }}</p>
+              </li>
+            </ul>
+          </div>
 
-            <!-- Academic Work Experience Section -->
-            <h3 class="text-3xl font-bold text-gray-800 mt-12 mb-4">Academic Work Experience</h3>
-            <div class="flex flex-col gap-8">
-              <div v-for="(item, index) in academicWorkExperience" :key="index" class="bg-white p-4 rounded-lg shadow-md">
-                <h4 class="text-lg font-bold">{{ item.title }}</h4>
-                <p class="text-sm italic">{{ item.institution }}</p>
-                <div class="bg-blue-100 p-2 mt-2 text-sm text-center">{{ item.date }}</div>
-                <p class="mt-2 text-sm">{{ item.details }}</p>
-              </div>
-            </div>
+          <!-- Academic Work Experience Card -->
+          <div class="bg-white rounded-lg shadow-md p-6 hover:border-gradient transition-all duration-300">
+            <h3 class="text-xl font-semibold mb-4">Academic Work Experience</h3>
+            <ul>
+              <li v-for="work in academicWorkExperience" :key="work.title" class="mb-4 relative">
+                <img v-if="work.institution.includes('Auburn University')" src="assets/img/auburn_logo.svg" alt="Institution Logo" class="absolute top-0 right-0 m-2 w-14 h-14">
+                <h4 class="font-bold">{{ work.title }}</h4>
+                <p>{{ work.institution }}</p>
+                <p>{{ work.date }}</p>
+                <p>{{ work.details }}</p>
+              </li>
+            </ul>
           </div>
         </div>
       </ExpandableSection>
@@ -79,5 +79,11 @@ const academicWorkExperience = [
 </script>
 
 <style scoped>
-/* Custom styles can be added here */
+.hover\:border-gradient {
+  border: 4px solid transparent;
+  transition: border 0.5s ease-in-out;
+}
+.hover\:border-gradient:hover {
+  border-image: linear-gradient(45deg, #f093fb, #f5576c, #f093fb, #f5576c) 1;
+}
 </style>

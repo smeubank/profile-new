@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     sourceMapsUploadOptions: {
       org: "steven-eubank",
       project: "profile-new-nuxt",
-      authToken: process.env.SENTRY_AUTH_TOKEN,
+      authToken: process.env.VITE_SENTRY_AUTH_TOKEN, 
     },
   },
   css: ['@/assets/css/main.css'],
@@ -32,3 +32,6 @@ export default defineNuxtConfig({
   ],
   compatibilityDate: '2024-08-31',
 })
+
+// Debugging: Log the environment variable to ensure it's loaded
+console.log('Sentry Auth Token:', process.env.VITE_SENTRY_AUTH_TOKEN);
