@@ -1,12 +1,12 @@
 export default defineNuxtConfig({
   modules: ["@sentry/nuxt/module"],
-  sentry: {
-    sourceMapsUploadOptions: {
-      org: "steven-eubank",
-      project: "profile-new-nuxt",
-      authToken: process.env.SENTRY_AUTH_TOKEN,
-    },
-  },
+  // sentry: {
+  //   sourceMapsUploadOptions: {
+  //     org: "steven-eubank",
+  //     project: "profile-new-nuxt",
+  //     authToken: process.env.SENTRY_AUTH_TOKEN || "sntrys_eyJpYXQiOjE3MjUwMjEzMDEuOTE4MzUxLCJ1cmwiOiJodHRwczovL3NlbnRyeS5pbyIsInJlZ2lvbl91cmwiOiJodHRwczovL3VzLnNlbnRyeS5pbyIsIm9yZyI6InN0ZXZlbi1ldWJhbmsifQ", 
+  //   },
+  // },
   css: ['@/assets/css/main.css'],
   postcss: {
     plugins: {
