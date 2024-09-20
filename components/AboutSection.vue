@@ -93,6 +93,47 @@
 </template>
 
 <script setup>
+import { defineComponent } from 'vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
+// Import specific icons
+import { faHouse, faUser, faFileAlt, faStream, faEnvelope, faCloud, faUserTie, faDatabase, faComments, faFlag, faIdCard, faCar, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub, faInstagram, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
+// Add all icons to the library to ensure they are available
+library.add(fas, fab, faHouse, faUser, faFileAlt, faStream, faEnvelope, faCloud, faUserTie, faDatabase, faComments, faFlag, faIdCard, faCar, faChevronDown, faLinkedin, faGithub, faInstagram, faFacebook, faTwitter);
+
+const CertificationCard = defineComponent({
+  props: {
+    icon: {
+      type: [String, Array],
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: String,
+      default: '',
+    },
+  },
+  template: `
+    <div class="p-4 bg-white shadow-md rounded-lg flex items-center">
+      <font-awesome-icon :icon="icon" class="text-blue-600 mr-4" style="font-size: 1.5rem;" />
+      <div>
+        <span class="text-sm font-bold block">{{ title }}</span>
+        <span v-if="date" class="text-xs block">{{ date }}</span>
+      </div>
+    </div>
+  `,
+  components: {
+    FontAwesomeIcon,
+  },
+});
 </script>
 
 <style scoped>
