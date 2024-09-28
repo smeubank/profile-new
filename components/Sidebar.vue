@@ -43,7 +43,7 @@
       <h1 class="text-2xl font-bold">Steven Eubank</h1>
 
       <!-- Social Icons -->
-      <div class="flex flex-wrap justify-center mt-4 space-x-4">
+      <div class="grid grid-cols-3 gap-4 mt-4">
         <a
           href="https://www.linkedin.com/in/steven-eubank-72a2316b/"
           target="_blank"
@@ -65,8 +65,13 @@
         >
           <font-awesome-icon :icon="['fab', 'instagram']" class="text-white" />
         </a>
-      </div>
-      <div class="flex justify-center mt-4 space-x-6">
+        <a
+          href="https://www.strava.com/athletes/67945097"
+          target="_blank"
+          class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-blue-500 transition"
+        >
+          <font-awesome-icon :icon="['fab', 'strava']" class="text-white" />
+        </a>
         <a
           href="https://www.facebook.com/steven.m.eubank"
           target="_blank"
