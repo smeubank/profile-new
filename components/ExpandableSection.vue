@@ -45,27 +45,4 @@
   });
   </script>
   
-  <style scoped>
-  .pulse {
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
-  /* Smooth rotation animation for the arrow */
-  .rotate-180 {
-    transform: rotate(180deg);
-    transition: transform 0.5s ease;
-  }
-  </style>
   

@@ -59,7 +59,7 @@
           <font-awesome-icon :icon="['fab', 'github']" class="text-white" />
         </a>
         <a
-          href="https://www.instagram.com/steveneubank/"
+          href="https://www.instagram.com/steven_eubank/"
           target="_blank"
           class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-blue-500 transition"
         >
@@ -218,21 +218,3 @@ const toggleContentSubmenu = () => {
 };
 </script>
 
-<style scoped>
-/* Custom styles for the sidebar and hamburger menu */
-
-/* Adjust z-index values */
-button {
-  z-index: 60;
-}
-
-/* Overlay z-index is set via inline class (z-40) */
-
-/* Active link styling */
-.text-blue-300 {
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-/* Additional styles if needed */
-</style>

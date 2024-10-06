@@ -47,38 +47,4 @@
   }
   </script>
   
-  <style scoped>
-  /* FAQ cards will be stacked vertically with full width */
-  .flex-col {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .space-y-4 > * + * {
-    margin-top: 1rem; /* Adds spacing between FAQ cards */
-  }
-  
-  /* Transition for expanding/collapsing answer */
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity 0.5s;
-  }
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
-  
-  /* Apply hover shadow to individual FAQ cards */
-  .bg-white {
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: none; /* Remove any unwanted shadow on the cards */
-  }
-  
-  .cursor-pointer {
-    cursor: pointer;
-  }
-  
-  .hover\\:shadow-lg:hover {
-    box-shadow: 0 12px 16px -4px rgba(0, 0, 0, 0.1), 0 8px 10px -4px rgba(0, 0, 0, 0.05);
-  }
-  </style>
   
