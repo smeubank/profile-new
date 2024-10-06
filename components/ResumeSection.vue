@@ -78,12 +78,3 @@ const academicWorkExperience = [
 ];
 </script>
 
-<style scoped>
-.hover\:border-gradient {
-  border: 4px solid transparent;
-  transition: border 0.5s ease-in-out;
-}
-.hover\:border-gradient:hover {
-  border-image: linear-gradient(45deg, #f093fb, #f5576c, #f093fb, #f5576c) 1;
-}
-</style>

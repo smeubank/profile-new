@@ -197,36 +197,3 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped>
-.hover\:border-gradient {
-  border: 4px solid transparent;
-  transition: border 0.5s ease-in-out;
-}
-.hover\:border-gradient:hover {
-  border-image: linear-gradient(45deg, #f093fb, #f5576c, #f093fb, #f5576c) 1;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.hover\:scale-105 {
-  transition: transform 0.2s ease-in-out;
-}
-
-.active\:scale-95 {
-  transition: transform 0.1s ease-in-out;
-}
-
-/* Ensure spacing between cards */
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-/* Add shadow and rounded corner styling for the section */
-section {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border-radius: 1rem;
-}
-</style>
