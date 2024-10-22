@@ -59,7 +59,7 @@
           <font-awesome-icon :icon="['fab', 'github']" class="text-white" />
         </a>
         <a
-          href="https://www.instagram.com/steveneubank/"
+          href="https://www.instagram.com/steven_eubank/"
           target="_blank"
           class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-blue-500 transition"
         >
