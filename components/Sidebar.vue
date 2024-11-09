@@ -218,21 +218,3 @@ const toggleContentSubmenu = () => {
 };
 </script>
 
-<style scoped>
-/* Custom styles for the sidebar and hamburger menu */
-
-/* Adjust z-index values */
-button {
-  z-index: 60;
-}
-
-/* Overlay z-index is set via inline class (z-40) */
-
-/* Active link styling */
-.text-blue-300 {
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-/* Additional styles if needed */
-</style>

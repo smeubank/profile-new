@@ -54,35 +54,3 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped>
-/* Pulsing animation for the text and arrow */
-.pulse-text {
-  animation: pulse 2s infinite;
-  transition: opacity 0.5s ease-in-out;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Ensure the hero image fills the available space */
-section {
-  margin: 0;
-  padding: 0;
-}
-
-/* Fix alignment for mobile devices */
-@media (max-width: 768px) {
-  .scroll-down-text {
-    left: 0; /* Align to the left */
-  }
-}
-</style>
