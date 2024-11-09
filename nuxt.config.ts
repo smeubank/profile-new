@@ -7,6 +7,9 @@ export default defineNuxtConfig({
       authToken: process.env.VITE_SENTRY_AUTH_TOKEN, 
     },
   },
+  ignore: [
+    'brag-docs',
+  ],
   css: ['@/assets/css/main.css'],
   postcss: {
     plugins: {
