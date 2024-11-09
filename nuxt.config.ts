@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       authToken: process.env.VITE_SENTRY_AUTH_TOKEN, 
     },
   },
-  css: ['@/assets/css/main.css'],
+  css: ['@/assets/css/main.css', '@/assets/css/components.css'],
   postcss: {
     plugins: {
       'postcss-import': {},
