@@ -15,8 +15,8 @@
             <div
               v-for="blog in blogs"
               :key="blog.title"
-              @click="openLink(blog.link)"
-              class="p-4 bg-white rounded-lg shadow-md hover:border-gradient mb-6 cursor-pointer transform hover:scale-105 active:scale-95 transition-all duration-300"
+              @click="handleCardClick(blog, $event)"
+              class="p-4 bg-white rounded-lg shadow-md hover:border-gradient mb-6 cursor-pointer transform hover:scale-105 active:scale-95 transition-all duration-300 relative"
             >
               <img
                 :src="blog.image || placeholderImage"
@@ -31,6 +31,16 @@
                 class="text-blue-500 hover:underline"
                 >Read more</a
               >
+              <font-awesome-icon 
+                v-if="canEmbed(blog.link)"
+                :icon="['fas', 'expand']" 
+                class="absolute bottom-2 right-2 text-gray-500 hover:text-blue-500"
+              />
+              <font-awesome-icon 
+                v-else
+                :icon="['fas', 'external-link-alt']" 
+                class="absolute bottom-2 right-2 text-gray-500 hover:text-blue-500"
+              />
             </div>
           </div>
 
@@ -40,8 +50,8 @@
             <div
               v-for="event in events"
               :key="event.title"
-              @click="openLink(event.link)"
-              class="p-4 bg-white rounded-lg shadow-md hover:border-gradient mb-6 cursor-pointer transform hover:scale-105 active:scale-95 transition-all duration-300"
+              @click="handleCardClick(event, $event)"
+              class="p-4 bg-white rounded-lg shadow-md hover:border-gradient mb-6 cursor-pointer transform hover:scale-105 active:scale-95 transition-all duration-300 relative"
             >
               <img
                 :src="event.image || placeholderImage"
@@ -56,17 +66,29 @@
                 class="text-blue-500 hover:underline"
                 >Read more</a
               >
+              <font-awesome-icon 
+                :icon="['fas', 'external-link-alt']" 
+                class="absolute bottom-2 right-2 text-gray-500 hover:text-blue-500"
+              />
             </div>
           </div>
         </div>
       </ExpandableSection>
     </div>
   </section>
+
+  <!-- Add the modal component -->
+  <ContentCardModal 
+    :is-open="!!selectedItem"
+    :item="selectedItem"
+    @close="closeModal"
+  />
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import ExpandableSection from '@/components/ExpandableSection.vue'; // Import ExpandableSection
+import ContentCardModal from './ContentCardModal.vue';
 
 const placeholderImage = 'https://via.placeholder.com/300x200';
 
@@ -165,10 +187,35 @@ const events = ref([
     link: 'https://sentry.io/resources/getting-started-opentelemetry-ama/',
     image: null,
   },
+  {
+    title: 'Hot Ones Interview with an Engineering Manager',
+    description: 'Just for fun: an homage to hot ones. This was a POC really.',
+    link: 'https://www.youtube.com/watch?v=GuBpoV54Oys',
+    image: null,
+  },
 ]);
 
-const openLink = (link) => {
-  window.open(link, '_blank');
+const selectedItem = ref(null);
+
+const openModal = (item) => {
+  selectedItem.value = item;
+};
+
+const closeModal = () => {
+  selectedItem.value = null;
+};
+
+const canEmbed = (link) => {
+  return !link.includes('sentry.io/resources/'); // Blog posts can be embedded, resources cannot
+};
+
+const handleCardClick = (item, event) => {
+  event.preventDefault();
+  if (canEmbed(item.link)) {
+    openModal(item);
+  } else {
+    window.open(item.link, '_blank');
+  }
 };
 
 const fetchPreviewImage = async (item) => {
@@ -228,5 +275,19 @@ section {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
+}
+
+/* Add icon hover effect */
+.fa-expand, .fa-external-link-alt {
+  transition: transform 0.2s ease-in-out;
+}
+
+.fa-expand:hover, .fa-external-link-alt:hover {
+  transform: scale(1.2);
+}
+
+/* Ensure proper spacing for the icon */
+.text-gray-500 {
+  font-size: 1.25rem;
 }
 </style>

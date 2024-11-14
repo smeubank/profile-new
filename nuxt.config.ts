@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ["@sentry/nuxt/module"],
+  modules: ["@sentry/nuxt/module", '@nuxt/content'],
   sentry: {
     sourceMapsUploadOptions: {
       org: "steven-eubank",
@@ -34,6 +34,14 @@ export default defineNuxtConfig({
     '~/plugins/fontawesome.js',
   ],
   compatibilityDate: '2024-08-31',
+  content: {
+    markdown: {
+      toc: true,
+      anchorLinks: true,
+      remarkPlugins: [],
+      rehypePlugins: []
+    }
+  }
 })
 
 // Debugging: Log the environment variable to ensure it's loaded
