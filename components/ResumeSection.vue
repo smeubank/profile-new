@@ -16,8 +16,15 @@
               <div>
                 <h4 class="font-bold">{{ exp.title }}</h4>
                 <p>{{ exp.company }}</p>
-                <p>{{ exp.date }}</p>
-                <p>{{ exp.description }}</p>
+                <p class="flex items-center text-gray-600 mt-1">
+                  {{ exp.location }}
+                  <font-awesome-icon 
+                    :icon="['fas', 'map-marker-alt']" 
+                    class="ml-1 text-gray-500"
+                    style="font-size: 0.875rem;"
+                  />
+                </p>
+                <p class="mt-1">{{ exp.date }}</p>
               </div>
               <img 
                 v-if="exp.company === 'Allianz Technology Austria GmbH'" 
@@ -115,6 +122,7 @@ import { ref } from 'vue';
 import { marked } from 'marked';
 import ExpandableSection from './ExpandableSection.vue';
 import sentryRole from '@/assets/content/roles/sentry-pm';
+import placeholderRole from '@/assets/content/roles/placeholder';
 
 // Configure marked to handle line breaks
 marked.setOptions({
@@ -142,6 +150,7 @@ const professionalExperience = [
   { 
     title: 'Product Manager', 
     company: 'Sentry.io', 
+    location: 'Vienna, AT',
     date: 'August 2021 - Present', 
     //description: 'Supporting the development of web SDKs and tools to enhance observability and performance monitoring.',
     expandedContent: processMarkdown(sentryRole.content)
@@ -149,32 +158,32 @@ const professionalExperience = [
   { 
     title: 'IT Project Manager',
     company: 'Allianz Technology Austria GmbH',
+    location: 'Vienna, AT',
     date: 'December 2015 - August 2021',
     //description: 'Led multiple agile teams across major Allianz initiatives including Allianz Partners and Allianz Direct.',
-    expandedContent: processMarkdown(sentryRole.content)
+    expandedContent: processMarkdown(placeholderRole.content)
   },
   {
     title: 'Sr Solution Designer',
     company: 'Allianz Partners',
+    location: 'Vienna, AT',
     date: 'November 2020 - August 2021',
-    //description: '',
-    expandedContent: processMarkdown(sentryRole.content)
+    expandedContent: processMarkdown(placeholderRole.content)
   },
   {
     title: 'Sr Solution Designer',
-    company: 'Allianz Direct', 
+    company: 'Allianz Direct',
+    location: 'Munich, DE',
     date: 'August 2018 - November 2020',
-    //description: '',
-    expandedContent: processMarkdown(sentryRole.content)
+    expandedContent: processMarkdown(placeholderRole.content)
   },
   {
     title: 'IT Project Manager',
     company: 'Allianz Partners',
+    location: 'Vienna, AT',
     date: 'December 2015 - August 2018',
-    //description: '',
-    expandedContent: processMarkdown(sentryRole.content)
-  },
-  // ... other experience items
+    expandedContent: processMarkdown(placeholderRole.content)
+  }
 ];
 
 const education = [
@@ -257,5 +266,15 @@ const academicWorkExperience = [
 /* Modal styling improvements */
 .modal-content {
   @apply max-h-[80vh] overflow-y-auto;
+}
+
+/* Add styles for location text and icon */
+.text-gray-600 {
+  font-size: 0.875rem;
+}
+
+/* Ensure map marker icon aligns properly */
+.fa-map-marker-alt {
+  vertical-align: middle;
 }
 </style>
