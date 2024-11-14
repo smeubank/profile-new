@@ -187,6 +187,12 @@ const events = ref([
     link: 'https://sentry.io/resources/getting-started-opentelemetry-ama/',
     image: null,
   },
+  {
+    title: 'Hot Ones Interview with an Engineering Manager',
+    description: 'Just for fun: an homage to hot ones. This was a POC really.',
+    link: 'https://www.youtube.com/watch?v=GuBpoV54Oys',
+    image: null,
+  },
 ]);
 
 const selectedItem = ref(null);
